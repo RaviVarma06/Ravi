@@ -23,8 +23,8 @@ content: "";
 position: fixed;
 inset: 0;
 background: radial-gradient(circle at 20% 20%, rgba(255,90,150,0.28), transparent 60%),
-             radial-gradient(circle at 80% 30%, rgba(255,255,255,0.20), transparent 70%),
-             radial-gradient(circle at 50% 80%, rgba(255,40,120,0.20), transparent 60%);
+            radial-gradient(circle at 80% 30%, rgba(255,255,255,0.20), transparent 70%),
+            radial-gradient(circle at 50% 80%, rgba(255,40,120,0.20), transparent 60%);
 z-index: -2 !important;
 animation: bgFloat 12s infinite alternate ease-in-out;
 }
@@ -164,13 +164,13 @@ audio { display: none; }
 <div id="intro">
 <h2>Enter first 4 digits of your Phone Number</h2>
 <input type="number" id="code" placeholder="_ _ _ _" />
-<button onclick="checkCode()">Submit</button>
-<p class="reassure"> Don't worry it will not hack your phone 😊</p>
+<button onclick="checkCode()">Open madi</button>
+<p class="reassure"> Don't worry, it won't hack your phone 😊</p>
 </div>
 <!-- MAIN PAGE -->
 <div id="main">
 <div id="balloonLayer">.</div>
-<h1>🎉 Happy Birthday Priya 🎂</h1>
+<h1> Happy Birthday Priya <br> ❤️🥳🎂🎉</h1>
 <p class="subtext">Wishing you laughter, cake, and endless fun! <br> Always Be Happy🥳</p>
 <div class="slideshow">
 <img src="img1.jpg" class="active">
@@ -178,10 +178,9 @@ audio { display: none; }
 <img src="img3.jpg">
 </div>
 <p class="wish">
-  Hope your day is as bright and fun as you are <br>
-  ಮತ್ತೊಮ್ಮೆ, ಪ್ರಿಯಾ, ಹುಟ್ಟುಹಬ್ಬದ ಶುಭಾಶಯಗಳು💕
+ Hope your day is as bright and fun as u are <br>
+ ಮತ್ತೊಮ್ಮೆ, ಹುಟ್ಟುಹಬ್ಬದ ಶುಭಾಶಯಗಳು ಪಿಂಕಿ💕
 </p>
- 
 <audio id="bgMusic" src="song.mp3" preload="auto"></audio>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -194,57 +193,57 @@ const slides = document.querySelectorAll('.slideshow img');
 let slideIndex = 0;
 function checkCode() {
 if (codeInput.value.trim() === "6363") {
-   intro.classList.add("hidden");
-   setTimeout(() => {
-     intro.style.display = "none";
-     main.style.display = "flex";
-     document.body.style.overflow = "auto";
-     startShow();
-     createBalloons();
-   }, 400);
+  intro.classList.add("hidden");
+  setTimeout(() => {
+    intro.style.display = "none";
+    main.style.display = "flex";
+    document.body.style.overflow = "auto";
+    startShow();
+    createBalloons();
+  }, 400);
 } else {
-   alert("It's 6363");
+  alert("Heyy! It's 6363");
 }
 }
 function startShow() {
 music.play().catch(()=>{});
 setInterval(() => {
-   slides[slideIndex].classList.remove("active");
-   slideIndex = (slideIndex + 1) % slides.length;
-   slides[slideIndex].classList.add("active");
+  slides[slideIndex].classList.remove("active");
+  slideIndex = (slideIndex + 1) % slides.length;
+  slides[slideIndex].classList.add("active");
 }, 3000);
 // 🎉 Continuous confetti forever
 (function confettiLoop() {
-   confetti({
-     particleCount: 3,
-     spread: 60,
-     origin: { x: Math.random(), y: Math.random() * 0.5 },
-     colors: ['#ff69b4','#ffffff','#ffb6c1']
-   });
-   requestAnimationFrame(confettiLoop);
+  confetti({
+    particleCount: 3,
+    spread: 60,
+    origin: { x: Math.random(), y: Math.random() * 0.5 },
+    colors: ['#ff69b4','#ffffff','#ffb6c1']
+  });
+  requestAnimationFrame(confettiLoop);
 })();
 }
 /* 🎈 BALLOONS (background only) */
 function createBalloons() {
 const layer = document.getElementById("balloonLayer");
 setInterval(() => {
-   const b = document.createElement("div");
-   b.className = "balloon";
-   const colors = [
-     "rgba(255,214,231,0.8)",
-     "rgba(255,236,199,0.8)",
-     "rgba(214,244,255,0.8)",
-     "rgba(232,255,214,0.8)",
-     "rgba(246,214,255,0.8)"
-   ];
-   b.style.background = colors[Math.floor(Math.random() * colors.length)];
-   b.style.left = Math.random() * 100 + "vw";
-   const size = 35 + Math.random() * 30;
-   b.style.width = size + "px";
-   b.style.height = size * 1.3 + "px";
-   b.style.animationDuration = 10 + Math.random() * 8 + "s";
-   layer.appendChild(b);
-   setTimeout(() => b.remove(), 20000);
+  const b = document.createElement("div");
+  b.className = "balloon";
+  const colors = [
+    "rgba(255,214,231,0.8)",
+    "rgba(255,236,199,0.8)",
+    "rgba(214,244,255,0.8)",
+    "rgba(232,255,214,0.8)",
+    "rgba(246,214,255,0.8)"
+  ];
+  b.style.background = colors[Math.floor(Math.random() * colors.length)];
+  b.style.left = Math.random() * 100 + "vw";
+  const size = 35 + Math.random() * 30;
+  b.style.width = size + "px";
+  b.style.height = size * 1.3 + "px";
+  b.style.animationDuration = 10 + Math.random() * 8 + "s";
+  layer.appendChild(b);
+  setTimeout(() => b.remove(), 20000);
 }, 1000);
 }
 codeInput.addEventListener("keydown", e => {
