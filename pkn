@@ -6,155 +6,155 @@
 <title>Happy Birthday Priya 🎉</title>
 <style>
 html, body {
- height: 100%;
- margin: 0;
- padding: 0;
- background: #000;
- color: #fff;
- font-family: "Poppins", system-ui, sans-serif;
- text-align: center;
- -webkit-font-smoothing: antialiased;
- -webkit-user-select: none;
- overflow-x: hidden !important;
+height: 100%;
+margin: 0;
+padding: 0;
+background: #000;
+color: #fff;
+font-family: "Poppins", system-ui, sans-serif;
+text-align: center;
+-webkit-font-smoothing: antialiased;
+-webkit-user-select: none;
+overflow-x: hidden !important;
 }
 /* ✅ BACKGROUND GLOW ABOVE BALLOONS */
 body::before {
- content: "";
- position: fixed;
- inset: 0;
- background: radial-gradient(circle at 20% 20%, rgba(255,90,150,0.28), transparent 60%),
+content: "";
+position: fixed;
+inset: 0;
+background: radial-gradient(circle at 20% 20%, rgba(255,90,150,0.28), transparent 60%),
              radial-gradient(circle at 80% 30%, rgba(255,255,255,0.20), transparent 70%),
              radial-gradient(circle at 50% 80%, rgba(255,40,120,0.20), transparent 60%);
- z-index: -2 !important;
- animation: bgFloat 12s infinite alternate ease-in-out;
+z-index: -2 !important;
+animation: bgFloat 12s infinite alternate ease-in-out;
 }
 @keyframes bgFloat {
- 0% { transform: translateY(0); }
- 100% { transform: translateY(-25px); }
+0% { transform: translateY(0); }
+100% { transform: translateY(-25px); }
 }
 /* ✅✅ BALLOONS ALWAYS BEHIND EVERYTHING */
 #balloonLayer {
- position: fixed !important;
- inset: 0;
- z-index: -3 !important;   /* ✅ balloons at bottom layer */
- overflow: visible !important;
- pointer-events: none;
+position: fixed !important;
+inset: 0;
+z-index: -3 !important;
+overflow: visible !important;
+pointer-events: none;
 }
-/* Pastel balloons */
+/* 🎈 Light & Transparent Pastel Balloons */
 .balloon {
- position: absolute;
- bottom: -120px;
- width: 45px;
- height: 60px;
- border-radius: 50%;
- opacity: 0.9;
- animation: floatUp 12s linear infinite;
+position: absolute;
+bottom: -120px;
+width: 45px;
+height: 60px;
+border-radius: 50%;
+opacity: 0.5; /* More transparent */
+filter: brightness(1.15); /* Lighter tone */
+animation: floatUp 12s linear infinite;
 }
-/* Balloon string */
+/* 🎀 Balloon string (tail) */
 .balloon::after {
- content: "";
- position: absolute;
- bottom: -45px;
- left: 50%;
- width: 2px;
- height: 45px;
- background: rgba(255,255,255,0.5);
- transform: translateX(-50%);
- border-radius: 2px;
- opacity: 0.7;
+content: "";
+position: absolute;
+bottom: -55px;
+left: 50%;
+width: 2px;
+height: 55px;
+background: rgba(255,255,255,0.3); /* Light semi-transparent tail */
+transform: translateX(-50%);
+border-radius: 2px;
 }
 @keyframes floatUp {
- 0%   { transform: translateY(0) scale(1); opacity: 1; }
- 50%  { transform: translateY(-60vh) scale(1.05) rotate(3deg); }
- 100% { transform: translateY(-130vh) scale(1.1) rotate(-2deg); opacity: 0.5; }
+0%   { transform: translateY(0) scale(1); opacity: 1; }
+50%  { transform: translateY(-60vh) scale(1.05) rotate(3deg); }
+100% { transform: translateY(-130vh) scale(1.1) rotate(-2deg); opacity: 0.4; }
 }
 /* INTRO OVERLAY */
 #intro {
- position: fixed;
- inset: 0;
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- padding: 20px;
- background: rgba(0,0,0,0.86);
- backdrop-filter: blur(6px);
- transition: opacity .45s ease;
- z-index: 20;
+position: fixed;
+inset: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px;
+background: rgba(0,0,0,0.86);
+backdrop-filter: blur(6px);
+transition: opacity .45s ease;
+z-index: 20;
 }
 #intro.hidden {
- opacity: 0;
- pointer-events: none;
- visibility: hidden;
+opacity: 0;
+pointer-events: none;
+visibility: hidden;
 }
 #intro input, #intro button {
- width: 90%;
- max-width: 330px;
- padding: 12px 16px;
- border-radius: 12px;
- border: none;
- margin-top: 10px;
- font-size: 1rem;
+width: 90%;
+max-width: 330px;
+padding: 12px 16px;
+border-radius: 12px;
+border: none;
+margin-top: 10px;
+font-size: 1rem;
 }
 #intro input {
- background: #fff;
- color: #111;
- letter-spacing: 6px;
- text-align: center;
+background: #fff;
+color: #111;
+letter-spacing: 6px;
+text-align: center;
 }
 #intro button {
- background: linear-gradient(90deg,#ff3b8f,#ff7bcb);
- color: #fff;
- font-weight: 600;
+background: linear-gradient(90deg,#ff3b8f,#ff7bcb);
+color: #fff;
+font-weight: 600;
 }
 #intro .reassure {
- margin-top: 18px;
- color: #e6e6e6;
- font-size: 1rem;
+margin-top: 18px;
+color: #e6e6e6;
+font-size: 1rem;
 }
-/* MAIN CONTENT (above balloons & glow) */
+/* MAIN CONTENT */
 #main {
- display: none;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- min-height: 100dvh;
- padding: 40px 16px 60px;
- box-sizing: border-box;
- overflow-y: auto;
- position: relative;
- z-index: 5 !important;  /* ✅ content above glow & balloons */
+display: none;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+min-height: 100dvh;
+padding: 40px 16px 60px;
+box-sizing: border-box;
+overflow-y: auto;
+position: relative;
+z-index: 5 !important;
 }
 h1 {
- font-size: 2rem;
- margin: 5px 0 10px;
- text-shadow: 0 6px 20px rgba(255,59,143,0.45);
+font-size: 2rem;
+margin: 5px 0 10px;
+text-shadow: 0 6px 20px rgba(255,59,143,0.45);
 }
 .subtext {
- font-size: 1.1rem;
- margin-bottom: 15px;
+font-size: 1.1rem;
+margin-bottom: 15px;
 }
 .slideshow {
- width: 82vw;
- max-width: 360px;
- border-radius: 18px;
- overflow: hidden;
- margin-top: 10px;
- box-shadow: 0 0 30px rgba(255,59,143,0.35);
+width: 82vw;
+max-width: 360px;
+border-radius: 18px;
+overflow: hidden;
+margin-top: 10px;
+box-shadow: 0 0 30px rgba(255,59,143,0.35);
 }
 .slideshow img {
- width: 100%;
- height: auto;
- display: none;
- object-fit: contain;
+width: 100%;
+height: auto;
+display: none;
+object-fit: contain;
 }
 .slideshow img.active {
- display: block;
+display: block;
 }
 .wish {
- margin-top: 20px;
- font-size: 1rem;
- max-width: 90%;
+margin-top: 20px;
+font-size: 1rem;
+max-width: 90%;
 }
 audio { display: none; }
 </style>
@@ -162,24 +162,27 @@ audio { display: none; }
 <body>
 <!-- INTRO PAGE -->
 <div id="intro">
- <h2>Enter first 4 digits of your Phone Number</h2>
- <input type="number" id="code" placeholder="_ _ _ _" />
- <button onclick="checkCode()">Submit</button>
- <p class="reassure">It’s completely safe 😊</p>
+<h2>Enter first 4 digits of your Phone Number</h2>
+<input type="number" id="code" placeholder="_ _ _ _" />
+<button onclick="checkCode()">Submit</button>
+<p class="reassure"> Don't worry it will not hack your phone 😊</p>
 </div>
 <!-- MAIN PAGE -->
 <div id="main">
- <!-- ✅ Balloon Layer (dot prevents deletion by hosting) -->
- <div id="balloonLayer">.</div>
- <h1>🎉 Happy Birthday Priya! 🎂</h1>
- <p class="subtext">Wishing you laughter, cake, and endless fun! 🥳</p>
- <div class="slideshow">
-   <img src="img1.jpg" class="active">
-   <img src="img2.jpg">
-   <img src="img3.jpg">
- </div>
- <p class="wish">Hey Priya! Hope your day is as bright and fun as you are 💕</p>
- <audio id="bgMusic" src="song.mp3" preload="auto"></audio>
+<div id="balloonLayer">.</div>
+<h1>🎉 Happy Birthday Priya 🎂</h1>
+<p class="subtext">Wishing you laughter, cake, and endless fun! <br> Always Be Happy🥳</p>
+<div class="slideshow">
+<img src="img1.jpg" class="active">
+<img src="img2.jpg">
+<img src="img3.jpg">
+</div>
+<p class="wish">
+  Hope your day is as bright and fun as you are <br>
+  ಮತ್ತೊಮ್ಮೆ, ಪ್ರಿಯಾ, ಹುಟ್ಟುಹಬ್ಬದ ಶುಭಾಶಯಗಳು💕
+</p>
+ 
+<audio id="bgMusic" src="song.mp3" preload="auto"></audio>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
@@ -190,7 +193,7 @@ const music = document.getElementById('bgMusic');
 const slides = document.querySelectorAll('.slideshow img');
 let slideIndex = 0;
 function checkCode() {
- if (codeInput.value.trim() === "6363") {
+if (codeInput.value.trim() === "6363") {
    intro.classList.add("hidden");
    setTimeout(() => {
      intro.style.display = "none";
@@ -199,35 +202,41 @@ function checkCode() {
      startShow();
      createBalloons();
    }, 400);
- } else {
-   alert("Wrong code 😅 Try again!");
- }
+} else {
+   alert("It's 6363");
+}
 }
 function startShow() {
- music.play().catch(()=>{});
- setInterval(() => {
+music.play().catch(()=>{});
+setInterval(() => {
    slides[slideIndex].classList.remove("active");
    slideIndex = (slideIndex + 1) % slides.length;
    slides[slideIndex].classList.add("active");
- }, 3000);
- const end = Date.now() + 10000;
- (function frame() {
+}, 3000);
+// 🎉 Continuous confetti forever
+(function confettiLoop() {
    confetti({
      particleCount: 3,
      spread: 60,
      origin: { x: Math.random(), y: Math.random() * 0.5 },
-     colors: ['#ff69b4','#ffffff','#ff1493']
+     colors: ['#ff69b4','#ffffff','#ffb6c1']
    });
-   if (Date.now() < end) requestAnimationFrame(frame);
- })();
+   requestAnimationFrame(confettiLoop);
+})();
 }
-/* ✅ BALLOONS (background only) */
+/* 🎈 BALLOONS (background only) */
 function createBalloons() {
- const layer = document.getElementById("balloonLayer");
- setInterval(() => {
+const layer = document.getElementById("balloonLayer");
+setInterval(() => {
    const b = document.createElement("div");
    b.className = "balloon";
-   const colors = ["#FFD6E7", "#FFECC7", "#D6F4FF", "#E8FFD6", "#F6D6FF"];
+   const colors = [
+     "rgba(255,214,231,0.8)",
+     "rgba(255,236,199,0.8)",
+     "rgba(214,244,255,0.8)",
+     "rgba(232,255,214,0.8)",
+     "rgba(246,214,255,0.8)"
+   ];
    b.style.background = colors[Math.floor(Math.random() * colors.length)];
    b.style.left = Math.random() * 100 + "vw";
    const size = 35 + Math.random() * 30;
@@ -236,10 +245,10 @@ function createBalloons() {
    b.style.animationDuration = 10 + Math.random() * 8 + "s";
    layer.appendChild(b);
    setTimeout(() => b.remove(), 20000);
- }, 1000);
+}, 1000);
 }
 codeInput.addEventListener("keydown", e => {
- if (e.key === "Enter") checkCode();
+if (e.key === "Enter") checkCode();
 });
 </script>
 </body>
