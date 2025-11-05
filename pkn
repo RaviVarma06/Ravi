@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Happy Birthday Priya 🎉</title>
+<style>
+ body {
+   margin: 0;
+   padding: 0;
+   background: #000;
+   color: #fff;
+   font-family: "Poppins", system-ui, sans-serif;
+   text-align: center;
+   overflow: hidden;
+   -webkit-user-select: none;
+ }
+ #intro {
+   position: fixed;
+   inset: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: #000;
+   transition: opacity 0.6s ease;
+ }
+ #intro input, #intro button {
+   padding: 12px 16px;
+   border-radius: 10px;
+   border: none;
+   margin-top: 10px;
+   font-size: 1rem;
+   width: 220px;
+   text-align: center;
+ }
+ #intro button {
+   background: linear-gradient(90deg, #ff3b8f, #ff7bcb);
+   color: #fff;
+   font-weight: 600;
+ }
+ #main {
+   display: none;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   padding: 10px;
+ }
+ h1 {
+   font-size: 2rem;
+   margin: 10px 0 5px;
+   text-shadow: 0 4px 20px rgba(255,59,143,0.5);
+ }
+ p.subtext {
+   font-size: 1.1rem;
+   margin-bottom: 15px;
+   color: #f0f0f0;
+ }
+ .slideshow {
+   position: relative;
+   width: 80vw;
+   max-width: 350px;
+   height: 350px;
+   border-radius: 20px;
+   overflow: hidden;
+   box-shadow: 0 0 30px rgba(255,59,143,0.4);
+ }
+ .slideshow img {
+   position: absolute;
+   inset: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   opacity: 0;
+   transition: opacity 1.2s ease;
+ }
+ .slideshow img.active {
+   opacity: 1;
+ }
+ .wish {
+   margin-top: 20px;
+   font-size: 1rem;
+   color: #fff;
+   max-width: 90%;
+ }
+ audio { display: none; }
+</style>
+</head>
+<body>
+<!-- Intro Page -->
+<div id="intro">
+<h2>Enter first 4 digits of your Phone Number /n Don't worry it won't hack your mobile </h2>
+<input type="number" id="code" placeholder="_ _ _ _" />
+<button onclick="checkCode()">Submit</button>
+</div>
+<!-- Main Page -->
+<div id="main">
+<h1>🎉 Happy Birthday Priya! 🎂</h1>
+<p class="subtext">Wishing you laughter, cake, and endless fun! 🥳</p>
+<div class="slideshow">
+<img src="img1.jpg" class="active">
+<img src="img2.jpg">
+<img src="img3.jpg">
+</div>
+<p class="wish">Hey Priya! Hope your day is as bright and fun as you are 💕</p>
+<audio id="bgMusic" src="song.mp3" preload="auto"></audio>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+ const intro = document.getElementById('intro');
+ const main = document.getElementById('main');
+ const music = document.getElementById('bgMusic');
+ const slides = document.querySelectorAll('.slideshow img');
+ let slideIndex = 0;
+ function checkCode() {
+   const code = document.getElementById('code').value.trim();
+   if (code === "6363") {
+     intro.style.opacity = "0";
+     setTimeout(() => {
+       intro.style.display = "none";
+       main.style.display = "flex";
+       startShow();
+     }, 600);
+   } else {
+     alert("Wrong code 😅 Try again!");
+   }
+ }
+ function startShow() {
+   // Play music
+   music.play().catch(()=>{});
+   // Start slideshow
+   setInterval(() => {
+     slides[slideIndex].classList.remove('active');
+     slideIndex = (slideIndex + 1) % slides.length;
+     slides[slideIndex].classList.add('active');
+   }, 3500);
+   // Lighter confetti
+   const end = Date.now() + 15000;
+   (function frame() {
+     confetti({
+       particleCount: 3,
+       spread: 60,
+       origin: { x: Math.random(), y: Math.random() * 0.5 },
+       colors: ['#ff69b4', '#ffffff', '#ff1493']
+     });
+     if (Date.now() < end) requestAnimationFrame(frame);
+   })();
+ }
+ // Allow Enter key
+ document.getElementById('code').addEventListener('keydown', e => {
+   if (e.key === 'Enter') checkCode();
+ });
+</script>
+</body>
+</html>
